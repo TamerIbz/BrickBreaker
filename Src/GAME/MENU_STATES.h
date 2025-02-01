@@ -1,0 +1,14 @@
+
+#pragma once
+#ifndef SCREEN_STATE_H
+#define  SCREEN_STATE_H
+typedef enum SCREEN_STATES
+{
+	MAINMENU,
+	GAME,
+	RETRYMENU
+}SCREEN_STATES;
+
+
+extern enum SCREEN_STATES CURRENT_SCREEN_STATE;
+#endif
