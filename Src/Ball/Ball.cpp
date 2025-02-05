@@ -59,6 +59,9 @@ void Ball::Update()
 
 	if (!initialCollision)
 	{
+		const float MAX_BALL_VELOCITY = 400.0f;  // Maximum velocity limit
+		velocityX = std::min(velocityX, MAX_BALL_VELOCITY);
+		velocityY = std::min(velocityY, MAX_BALL_VELOCITY);
 		OBJRect.x += velocityX * TIME_STEP;
 		OBJRect.y += velocityY * TIME_STEP;
 

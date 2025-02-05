@@ -20,6 +20,7 @@ bool CollisionManager::CheckCollision(SDL_Rect objA, SDL_Rect objB, SDL_Rect* re
 	ColPoints a(objA);
 	ColPoints b(objB);
 
+    //if (!CheckSweptCollision(a, b, TIME_STEP)) return false;
 	if (!OnCollisionExit(a, b)) return false;
 	if (OnCollisionEnter(a, b))
 		return true;
@@ -37,6 +38,7 @@ bool CollisionManager::CheckCollisionProperties(GameObject* _object, SDL_Rect re
 
 	return true;
 }
+#pragma endregion
 
 #pragma region Enter & Exit
 bool CollisionManager::OnCollisionEnter(ColPoints a, ColPoints b)
@@ -51,7 +53,7 @@ bool CollisionManager::OnCollisionEnter(ColPoints a, ColPoints b)
 		overlapX = std::max(0.0f, std::min(a.right, b.right) - std::max(a.left, b.left));
 		overlapY = std::max(0.0f, std::min(a.bottom, b.bottom) - std::max(a.top, b.top));
 
-		const float tolerance = 1.f;
+		const float tolerance = 015.f; // 1
 
 		if (std::abs(overlapX - overlapY) <= tolerance) {
 			// Overlaps are within tolerance
